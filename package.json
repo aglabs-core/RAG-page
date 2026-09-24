@@ -10,7 +10,9 @@
     "images:convert": "node script/convert-images.cjs",
     "start": "cross-env NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "verify": "npm run check && npm run build",
+    "audit:gate": "node audit-gate.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -53,7 +55,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "date-fns": "^3.6.0",
-    "drizzle-orm": "^0.39.3",
+    "drizzle-orm": "^0.45.3",
     "drizzle-zod": "^0.7.0",
     "embla-carousel-react": "^8.6.0",
     "express": "^4.21.2",
