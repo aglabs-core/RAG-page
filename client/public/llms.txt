@@ -5,7 +5,7 @@
 A AG LABS ajuda empresas a economizar até 80% do trabalho manual com soluções de inteligência artificial. Atende Rio Verde, todo o estado de Goiás e todo o Brasil (remotamente).
 
 - Site oficial da empresa: https://aglabs.ia.br
-- Esta página (produto RAG / Atendente IA): https://rag.aglabs.api.br
+- Esta página (produto RAG / Atendente IA): https://rag.aglabs.ia.br
 - Contato/WhatsApp: +55 64 99325-9857
 
 ## Soluções

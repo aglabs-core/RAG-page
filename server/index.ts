@@ -13,10 +13,8 @@ app.set('trust proxy', 1);
 import cors from 'cors';
 app.use(cors({
   origin: [
-    'https://rag.aglabs.api.br',
-    'http://rag.aglabs.api.br',
-    'https://www.rag.aglabs.api.br',
-    'http://www.rag.aglabs.api.br'
+    'https://rag.aglabs.ia.br',
+    'https://www.rag.aglabs.ia.br'
   ],
   credentials: true
 }));
