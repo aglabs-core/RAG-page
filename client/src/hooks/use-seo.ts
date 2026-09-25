@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://rag.aglabs.api.br";
+const SITE_URL = "https://rag.aglabs.ia.br";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/opengraph.png`;
 
 export interface SeoConfig {

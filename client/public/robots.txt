@@ -1,4 +1,4 @@
-# robots.txt — https://rag.aglabs.api.br
+# robots.txt — https://rag.aglabs.ia.br
 
 # Buscadores tradicionais
 User-agent: *
@@ -59,4 +59,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://rag.aglabs.api.br/sitemap.xml
+Sitemap: https://rag.aglabs.ia.br/sitemap.xml
