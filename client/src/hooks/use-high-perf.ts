@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-
 // Cache the WebGL check result to prevent repeated checks and ensure stable initial value
 let cachedHighPerfResult: boolean | null = null;
 
@@ -53,23 +51,13 @@ function checkHighPerfWebGL(): boolean {
   }
 }
 
-// Initialize cache at module load for stable SSR hydration - SYNC initialization
-if (typeof window !== 'undefined' && cachedHighPerfResult === null) {
-  cachedHighPerfResult = checkHighPerfWebGL();
-}
-
-export function useHighPerfWebGL(): boolean {
-  // Return cached result directly - NO state changes, NO re-renders
-  const hasChecked = useRef(false);
-
-  // Ensure cache is populated (defensive, should already be done at module load)
-  if (!hasChecked.current && typeof window !== 'undefined') {
-    hasChecked.current = true;
-    if (cachedHighPerfResult === null) {
-      cachedHighPerfResult = checkHighPerfWebGL();
-    }
+// O teste cria um contexto WebGL, que custa caro no carregamento. Ele só roda
+// quando `enabled` fica verdadeiro (depois que a página carregou) e o
+// resultado fica em cache para o resto da sessão.
+export function useHighPerfWebGL(enabled = true): boolean {
+  if (!enabled || typeof window === 'undefined') return false;
+  if (cachedHighPerfResult === null) {
+    cachedHighPerfResult = checkHighPerfWebGL();
   }
-
-  // Always return cached value - this never triggers a re-render
-  return cachedHighPerfResult ?? false;
+  return cachedHighPerfResult;
 }
