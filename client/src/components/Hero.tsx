@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useHighPerfWebGL } from "@/hooks/use-high-perf";
+import { useAfterLoad } from "@/hooks/use-after-load";
 import usePrefersReducedMotion from "@/hooks/use-prefers-reduced-motion";
 const LightPillar = lazy(() => import("@/components/ui/light-pillar"));
 const Globe = lazy(() => import("@/components/ui/globe").then((m) => ({ default: m.Globe })));
@@ -84,8 +85,9 @@ const mobilePillarConfig = {
 function Hero() {
   const { openChat } = useChatbot();
   const isMobile = useIsMobile();
-  const isHighPerf = useHighPerfWebGL();
   const reducedMotion = usePrefersReducedMotion();
+  const effectsReady = useAfterLoad();
+  const isHighPerf = useHighPerfWebGL(effectsReady);
   
   // Determine if we should skip animations entirely
   const skipAnimations = isMobile || reducedMotion;
@@ -100,7 +102,7 @@ function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Light Pillar Background - Only on desktop for performance */}
-      {!isMobile && (
+      {!isMobile && effectsReady && (
         <Suspense fallback={null}>
           <LightPillar {...desktopPillarConfig} />
         </Suspense>
@@ -109,7 +111,7 @@ function Hero() {
       {/* Mobile pillar/globe — use WebGL effects on capable devices; otherwise show lightweight CSS fallback */}
       {isMobile && (
         <>
-          {isHighPerf ? (
+          {isHighPerf && effectsReady ? (
             <>
               {/* WebGL LightPillar (lazy) */}
               <Suspense fallback={null}>
@@ -203,7 +205,7 @@ function Hero() {
           </div>
     
           {/* Right Column - Globe (desktop only - not rendered on mobile) */}
-          {!isMobile && (
+          {!isMobile && effectsReady && (
             <motion.div
               className="relative order-2 mt-8 xl:mt-0 hidden xl:flex items-center justify-center overflow-visible"
               initial={reducedMotion ? false : { opacity: 0, scale: 0.9 }}
@@ -221,7 +223,7 @@ function Hero() {
           )}
 
           {/* Small decorative globe for medium screens (tablet) - positioned behind content like mobile */}
-          {!isMobile && (
+          {!isMobile && effectsReady && (
             <div className="absolute right-[-20%] top-[30%] w-[400px] h-[400px] md:w-[500px] md:h-[500px] lg:w-[600px] lg:h-[600px] z-0 pointer-events-none opacity-25 xl:hidden" aria-hidden>
               <div className="absolute inset-0 bg-purple-500/15 blur-[100px] rounded-full" />
               <Suspense fallback={null}>

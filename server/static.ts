@@ -39,6 +39,10 @@ export function serveStatic(app: Express) {
   app.use(express.static(distPath, { index: false }));
 
   const shellIndex = path.resolve(distPath, "index.html");
+  // Home com o cabeçalho e o hero já no HTML (gerada no build por
+  // script/build.ts). Só vale para "/".
+  const homeShell = path.resolve(distPath, "home.html");
+  const hasHomeShell = fs.existsSync(homeShell);
 
   app.get("*", (req, res, next) => {
     if (req.method !== "GET") return next();
@@ -54,7 +58,12 @@ export function serveStatic(app: Express) {
 
     const hasSnapshot =
       prerendered.startsWith(distPath) && fs.existsSync(prerendered);
-    const fileToSend = hasSnapshot ? prerendered : shellIndex;
+    const fileToSend =
+      req.path === "/" && hasHomeShell
+        ? homeShell
+        : hasSnapshot
+          ? prerendered
+          : shellIndex;
 
     // Normaliza a barra final para que /terms e /terms/ contem como a mesma
     // rota conhecida.

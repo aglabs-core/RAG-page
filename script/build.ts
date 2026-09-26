@@ -1,7 +1,8 @@
 import { build as esbuild } from "esbuild";
 import { build as viteBuild } from "vite";
-import { rm, readFile, mkdir, readdir, copyFile } from "fs/promises";
+import { rm, readFile, writeFile, mkdir, readdir, copyFile } from "fs/promises";
 import { join } from "path";
+import { pathToFileURL } from "url";
 import { prerender } from "./prerender";
 
 // server deps to bundle to reduce openat(2) syscalls
@@ -39,6 +40,9 @@ async function buildAll() {
 
   console.log("building client...");
   await viteBuild();
+
+  console.log("rendering home shell...");
+  await buildHomeShell();
 
   // Copy optimized images (if present) into the final dist public folder so
   // runtime can reference /attached_assets/generated_images/optimized/*.avif
@@ -83,6 +87,53 @@ async function buildAll() {
     external: externals,
     logLevel: "info",
   });
+}
+
+// Gera dist/public/home.html: o index.html com o cabeçalho e o hero já dentro
+// do #root. O servidor entrega este arquivo em "/", e as demais rotas seguem
+// com o index.html vazio para não piscar o hero antes de outra página.
+async function buildHomeShell() {
+  const ssrDir = join(process.cwd(), "dist", "ssr");
+  const result = await viteBuild({
+    logLevel: "warn",
+    publicDir: false,
+    // Tudo no mesmo bundle: com parte das dependências externa, o React do
+    // react-dom/server e o do wouter viram duas cópias e os hooks quebram.
+    ssr: { noExternal: true },
+    build: {
+      ssr: join(process.cwd(), "client", "src", "home-shell.tsx"),
+      outDir: ssrDir,
+      emptyOutDir: true,
+    },
+  });
+  const outputs = (Array.isArray(result) ? result : [result]) as Array<{
+    output: Array<{ type: string; isEntry?: boolean; fileName: string }>;
+  }>;
+  const entry = outputs
+    .flatMap((o) => o.output)
+    .find((c) => c.type === "chunk" && c.isEntry);
+  if (!entry) throw new Error("build do home shell sem arquivo de entrada");
+
+  const { renderHomeShell } = await import(
+    pathToFileURL(join(ssrDir, entry.fileName)).href
+  );
+  const shell: string = renderHomeShell();
+  if (!shell.includes("<h1")) {
+    throw new Error("home shell sem <h1>: o hero não foi renderizado");
+  }
+
+  const publicDir = join(process.cwd(), "dist", "public");
+  const index = await readFile(join(publicDir, "index.html"), "utf-8");
+  const root = '<div id="root"></div>';
+  if (!index.includes(root)) {
+    throw new Error(`index.html sem ${root}`);
+  }
+  await writeFile(
+    join(publicDir, "home.html"),
+    index.replace(root, () => `<div id="root">${shell}</div>`),
+    "utf-8",
+  );
+  await rm(ssrDir, { recursive: true, force: true });
 }
 
 buildAll().catch((err) => {
