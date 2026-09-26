@@ -195,7 +195,7 @@ function RAGSection() {
           {/* Subheadline mais direta */}
           <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Diferente de um ChatGPT genérico, nosso assistente lê seus documentos e responde com informações reais do seu negócio. <br />
-            <span className="text-white font-medium"> Sem inventar nada.</span>
+            <span className="text-white font-medium"> Sem inventar resposta: quando não encontra na base, encaminha para a sua equipe.</span>
           </p>
           
           {/* CSS para animação do gradiente - only render on desktop */}
@@ -339,7 +339,7 @@ function RAGSection() {
 
           {/* Legenda explicativa */}
           <p className="text-center text-white/40 text-sm mt-4">
-            Seus documentos → Inteligência Artificial → Respostas precisas
+            Seus documentos → Agente de IA → Respostas com a fonte citada
           </p>
         </motion.div>
 
@@ -438,7 +438,7 @@ function RAGSection() {
               <div className="space-y-2.5">
                 <div className="flex items-center gap-2.5 text-sm text-white/70">
                   <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Conhece todos seus documentos</span>
+                  <span>Consulta os documentos que você enviar</span>
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-white/70">
                   <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
@@ -446,7 +446,7 @@ function RAGSection() {
                 </div>
                 <div className="flex items-center gap-2.5 text-sm text-white/70">
                   <Check className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Respostas precisas e confiáveis</span>
+                  <span>Passa para humano quando não sabe</span>
                 </div>
               </div>
             </div>
@@ -467,7 +467,7 @@ function RAGSection() {
             Como <span className="bg-linear-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">funciona</span>
           </h3>
           <p className="text-white/50 text-sm sm:text-base text-center mb-8 sm:mb-12 max-w-md mx-auto px-2">
-            3 passos simples para ter um assistente que conhece tudo do seu negócio.
+            3 passos simples para ter um assistente que responde com base nos documentos do seu negócio.
           </p>
 
           <div className="max-w-xl mx-auto min-h-96 overflow-hidden pb-8">
@@ -482,13 +482,13 @@ function RAGSection() {
                 emoji="🧠"
                 step={2}
                 title="A IA aprende"
-                description="Processa e entende seu negócio."
+                description="Organiza o conteúdo e aprende com cada documento novo que você adicionar."
               />
               <HowItWorksItem
                 emoji="💬"
                 step={3}
-                title="Responde com precisão"
-                description="Sempre citando a fonte."
+                title="Responde citando a fonte"
+                description="Em segundos. Quando não encontra na base, encaminha para a sua equipe."
               />
             </AnimatedList>
           </div>
@@ -506,14 +506,14 @@ function RAGSection() {
         >
           <div className="text-center mb-14">
             <StaggerChars
-              text="Exemplos Reais"
+              text="Casos de Uso"
               className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-purple-400"
-              hoverText="Casos de Uso"
+              hoverText="Onde Usar"
               hoverClassName="text-pink-400"
               direction="alternate"
             />
             <p className="text-white/50 mt-8 max-w-xl mx-auto">
-              Veja como empresas estão usando essa tecnologia no dia a dia.
+              Onde um agente que conhece os documentos do seu negócio ajuda no dia a dia.
             </p>
           </div>
 

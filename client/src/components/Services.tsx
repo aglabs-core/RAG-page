@@ -16,8 +16,8 @@ const services = [
     title: "Agentes de IA",
     subtitle: "Funcionários Digitais 24/7",
     description: "Agentes inteligentes que entendem seus documentos, respondem clientes e automatizam processos complexos.",
-    features: ["Atendimento instantâneo", "Integração com WhatsApp", "Aprende com sua base"],
-    metrics: { value: "80%", label: "menos trabalho manual" },
+    features: ["Responde em segundos", "Integração com WhatsApp", "Aprende com sua base"],
+    metrics: { value: "24h", label: "no site e WhatsApp" },
     gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
     glowColor: "purple",
     spotlightColor: "168, 85, 247",
@@ -30,9 +30,9 @@ const services = [
     icon: Globe,
     title: "Websites",
     subtitle: "Alta Conversão",
-    description: "Landing pages e sites otimizados para SEO e performance máxima. Transforme visitantes em clientes com designs modernos e estratégias de conversão.",
+    description: "Landing pages e sites otimizados para SEO e performance. Transforme visitantes em clientes com designs modernos e estratégias de conversão.",
     features: ["Design moderno", "SEO otimizado", "Carregamento rápido", "Responsivo"],
-    metrics: { value: "3x", label: "mais conversões" },
+    metrics: { value: "SEO", label: "técnico incluso" },
     gradient: "from-cyan-400 via-blue-500 to-indigo-500",
     glowColor: "blue",
     spotlightColor: "59, 130, 246",
@@ -45,9 +45,9 @@ const services = [
     icon: Zap,
     title: "Automações",
     subtitle: "Workflows Inteligentes",
-    description: "Elimine tarefas repetitivas com fluxos automatizados que conectam todas suas ferramentas.",
-    features: ["N8n & Make", "APIs conectadas", "Zero código"],
-    metrics: { value: "40h", label: "economizadas/mês" },
+    description: "Tire as tarefas repetitivas da sua equipe com fluxos automatizados que conectam suas ferramentas.",
+    features: ["N8n & Make", "APIs conectadas", "Sem você programar"],
+    metrics: { value: "24h", label: "rodando sem pausa" },
     gradient: "from-amber-400 via-orange-500 to-red-500",
     glowColor: "amber",
     spotlightColor: "251, 146, 60",
@@ -61,7 +61,7 @@ const services = [
     subtitle: "SaaS & Mobile",
     description: "Desenvolvimento de plataformas escaláveis e aplicativos mobile nativos.",
     features: ["React & Node.js", "iOS & Android", "Escalável"],
-    metrics: { value: "100%", label: "personalizado" },
+    metrics: { value: "Sob medida", label: "para o seu processo" },
     gradient: "from-rose-400 via-pink-500 to-purple-500",
     glowColor: "pink",
     spotlightColor: "236, 72, 153",
@@ -136,8 +136,9 @@ const AnimatedCounter = memo(function AnimatedCounter({ value, delay = 0 }: { va
   const isDisabled = reduceMotion || isMobile;
   
   useEffect(() => {
-    // Skip animation if disabled or already animated
-    if (isDisabled || hasAnimated) {
+    // Skip animation if disabled, already animated, or the value has no number
+    // to count up to (e.g. "SEO", "Sob medida"): show the text as-is.
+    if (isDisabled || hasAnimated || !numericPart) {
       setDisplayValue(value);
       return;
     }
@@ -184,7 +185,7 @@ const AnimatedCounter = memo(function AnimatedCounter({ value, delay = 0 }: { va
     observer.observe(ref.current);
     
     return () => observer.disconnect();
-  }, [target, suffix, delay, isDisabled, value, hasAnimated]);
+  }, [target, suffix, delay, isDisabled, value, hasAnimated, numericPart]);
   
   return <span ref={ref}>{displayValue}</span>;
 });
@@ -294,7 +295,7 @@ const HeroCard = memo(function HeroCard({ service, index }: { service: typeof se
             className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 rounded-full bg-linear-to-r from-violet-500/20 via-purple-500/20 to-fuchsia-500/20 border border-purple-400/30 backdrop-blur-md shadow-lg shadow-purple-500/10"
           >
             <Sparkles className="w-4 h-4 text-purple-300" />
-            <span className="text-xs font-semibold text-purple-200 tracking-wide">MAIS POPULAR</span>
+            <span className="text-xs font-semibold text-purple-200 tracking-wide">DESTAQUE</span>
           </div>
 
           <div className="relative z-10 flex flex-col h-full">
@@ -633,7 +634,7 @@ export default function Services() {
             transition={{ delay: shouldAnimate ? 0.2 : 0, duration: 0.5, ease: "easeOut" }}
             className="text-white/50 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto px-2 sm:px-0"
           >
-            Soluções sob medida para automatizar processos, escalar operações e multiplicar sua eficiência.
+            Soluções sob medida para automatizar processos, atender mais rápido e liberar sua equipe para o que importa.
           </motion.p>
         </div>
 

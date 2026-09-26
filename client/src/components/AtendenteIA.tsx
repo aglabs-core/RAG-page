@@ -23,7 +23,7 @@ const benefits = [
   {
     icon: Clock,
     title: "Atendimento 24/7",
-    description: "Seu WhatsApp respondendo clientes a qualquer hora, inclusive fins de semana e feriados.",
+    description: "Seu WhatsApp respondendo em segundos, a qualquer hora, inclusive fins de semana e feriados. Quando não sabe, passa para a sua equipe.",
   },
   {
     icon: CalendarCheck,
@@ -33,12 +33,12 @@ const benefits = [
   {
     icon: UserCheck,
     title: "Captura de leads",
-    description: "Coleta nome, telefone e interesse de cada cliente automaticamente.",
+    description: "Coleta nome, telefone e interesse de cada cliente e registra o contato no seu CRM.",
   },
   {
     icon: Send,
     title: "Follow-up inteligente",
-    description: "Reenvia mensagens para leads que não responderam, aumentando suas vendas.",
+    description: "Retoma a conversa com leads que pararam de responder, sem depender de alguém lembrar.",
   },
 ];
 

@@ -11,7 +11,7 @@ const WHATSAPP_LINK = "https://wa.me/5564993259857?text=Quero%20saber%20mais%20s
 // Trust badges data - defined outside component to avoid recreation
 const trustBadges = [
   { icon: Clock, text: "Resposta em 24h" },
-  { icon: Shield, text: "Dados 100% Seguros" },
+  { icon: Shield, text: "Privacidade conforme a LGPD" },
   { icon: Zap, text: "Implementação Rápida" },
 ] as const;
 
@@ -51,7 +51,7 @@ function CTASection() {
             className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-xs sm:text-sm font-medium text-purple-400 mb-6 sm:mb-8"
           >
             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
-            <span>Consultoria Gratuita por Tempo Limitado</span>
+            <span>Diagnóstico Gratuito e Sem Compromisso</span>
           </div>
           
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-4 sm:mb-6 leading-tight">
@@ -62,7 +62,7 @@ function CTASection() {
           </h2>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-            Agende uma consultoria gratuita de 30 minutos e descubra como podemos automatizar 80% das tarefas repetitivas do seu negócio.
+            Agende uma consultoria gratuita de 30 minutos e descubra quais tarefas repetitivas do seu negócio um agente de IA pode assumir.
           </p>
           
           {/* Trust badges */}
@@ -102,7 +102,7 @@ function CTASection() {
           <p
             className="mt-8 text-sm text-white/40"
           >
-            Metodologia testada em diversos setores.
+            Sem compromisso: você sai da conversa sabendo o que dá para automatizar.
           </p>
         </motion.div>
       </div>

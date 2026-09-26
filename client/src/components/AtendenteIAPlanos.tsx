@@ -36,7 +36,7 @@ const plans = [
     price: "297",
     setup: "197",
     setupLabel: "setup R$197",
-    description: "Automatize agendamentos e nunca perca um lead.",
+    description: "Automatize agendamentos e acompanhe cada lead até o fechamento.",
     features: [
       "Tudo do Start",
       "Agendamento automático integrado",
@@ -134,7 +134,7 @@ function AtendenteIAPlanos() {
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="px-4 py-1 text-xs font-semibold bg-linear-to-r from-purple-500 to-pink-500 rounded-full text-white shadow-lg flex items-center gap-1">
-                    <Star className="w-3 h-3" /> Mais Popular
+                    <Star className="w-3 h-3" /> Recomendado
                   </span>
                 </div>
               )}

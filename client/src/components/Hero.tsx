@@ -50,9 +50,9 @@ CSSPillarFallback.displayName = "CSSPillarFallback";
 
 // Stats data - defined outside component to avoid recreation
 const stats = [
-  { value: 40, suffix: "h+", label: "Economizadas/mês" },
-  { value: 99, suffix: "%", label: "Precisão" },
-  { value: 24, suffix: "/7", label: "Disponível" },
+  { value: 24, suffix: "/7", label: "Atendimento" },
+  { value: 2, suffix: "+", label: "Canais: site e WhatsApp" },
+  { value: 3, suffix: "", label: "Passos para começar" },
 ];
 
 // LightPillar config - memoized to prevent re-renders
@@ -174,7 +174,7 @@ function Hero() {
               className="text-sm sm:text-base md:text-lg lg:text-xl text-white/60 leading-relaxed max-w-xl mx-auto xl:mx-0 mb-6 sm:mb-8 px-2 sm:px-0 animate-fade-in-up"
               style={{ animationDelay: skipAnimations ? '0ms' : '200ms', animationDuration: skipAnimations ? '0ms' : '800ms' }}
             >
-              Criamos funcionários digitais. Agentes que leem seus documentos e <strong className="text-white">reduzem 80% do trabalho manual</strong>. Atendimento 24/7, zero erros, escala infinita.
+              Criamos funcionários digitais. Agentes que leem seus documentos e <strong className="text-white">respondem seus clientes com base neles, citando a fonte</strong>. Atendimento 24 h no site e no WhatsApp; quando não sabe, passa para a sua equipe.
             </p>
 
             {/* CTA Buttons */}
