@@ -24,12 +24,12 @@ export function TechStack() {
         <Reveal>
           <div className="flex flex-col gap-4">
             <SectionHeading className="max-w-3xl">
-              Usamos as melhores tecnologias de{" "}
-              <span className="text-gradient-green">automação</span> do mercado
+              Usamos tecnologias consolidadas de{" "}
+              <span className="text-gradient-green">automação</span> e IA
             </SectionHeading>
             <p className="max-w-xl text-[14px] leading-relaxed text-mist">
-              Combinamos as ferramentas mais avançadas de automação e IA para
-              entregar fluxos confiáveis, escaláveis e sob medida para o seu
+              Combinamos ferramentas de automação e IA amplamente usadas no
+              mercado para entregar fluxos confiáveis e sob medida para o seu
               negócio.
             </p>
           </div>

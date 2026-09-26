@@ -2,7 +2,7 @@
 
 > Agência de IA e automação em Rio Verde-GO. Criamos Agentes de IA, Atendentes para WhatsApp, sites de alta conversão, automações inteligentes e assistentes RAG treinados com os dados do negócio do cliente.
 
-A AG LABS ajuda empresas a economizar até 80% do trabalho manual com soluções de inteligência artificial. Atende Rio Verde, todo o estado de Goiás e todo o Brasil (remotamente).
+A AG LABS ajuda empresas a tirar trabalho repetitivo da equipe com agentes de inteligência artificial que atendem 24 horas no site e no WhatsApp. Atende Rio Verde, todo o estado de Goiás e todo o Brasil (remotamente).
 
 - Site oficial da empresa: https://aglabs.ia.br
 - Esta página (produto RAG / Atendente IA): https://rag.aglabs.ia.br
@@ -11,19 +11,19 @@ A AG LABS ajuda empresas a economizar até 80% do trabalho manual com soluções
 ## Soluções
 
 - **Agentes de IA**: funcionários digitais 24/7 que entendem documentos, respondem clientes e automatizam processos. Integração com WhatsApp e aprendizado com a base do cliente.
-- **Atendente IA para WhatsApp**: responde, agenda e vende pelo WhatsApp 24/7, captura leads (nome, telefone, interesse) e faz follow-up automático.
+- **Atendente IA para WhatsApp**: responde, agenda e vende pelo WhatsApp 24/7, captura leads (nome, telefone, interesse), registra o contato no CRM, faz follow-up automático e passa para a equipe quando não sabe a resposta.
 - **Websites de alta conversão**: landing pages e sites otimizados para SEO e performance.
-- **Automações**: fluxos com n8n e Make que conectam ferramentas e eliminam tarefas repetitivas.
+- **Automações**: fluxos com n8n e Make que conectam ferramentas e tiram tarefas repetitivas da equipe.
 - **Sistemas & Apps**: plataformas escaláveis (React/Node) e aplicativos mobile (iOS/Android).
 
 ## Assistente de IA com RAG (treinado com seus dados)
 
-Diferente de um ChatGPT genérico, o assistente lê os documentos do cliente (PDFs, planilhas, contratos, site), aprende o conteúdo e responde com informações reais do negócio, sempre citando a fonte — sem inventar.
+Diferente de um ChatGPT genérico, o assistente lê os documentos do cliente (PDFs, planilhas, contratos, site), aprende o conteúdo e responde com base nas informações do negócio, citando a fonte. Quando não encontra a resposta na base, encaminha para a equipe em vez de inventar. Documentos novos adicionados entram na base.
 
 Como funciona em 3 passos:
 1. Conecte seus dados (PDFs, planilhas, contratos, site).
 2. A IA processa e aprende sobre o negócio.
-3. O assistente responde com precisão, sempre citando a fonte.
+3. O assistente responde em segundos, citando a fonte, e encaminha para a equipe o que não encontra na base.
 
 ## Segmentos atendidos
 
