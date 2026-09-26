@@ -130,7 +130,7 @@ async function buildHomeShell() {
   }
   await writeFile(
     join(publicDir, "home.html"),
-    index.replace(root, () => `<div id="root">${shell}</div>`),
+    index.replace(root, () => `<div id="root" data-home-shell="1">${shell}</div>`),
     "utf-8",
   );
   await rm(ssrDir, { recursive: true, force: true });

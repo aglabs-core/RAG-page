@@ -15,11 +15,17 @@ const Privacy = lazy(() => import("@/pages/Privacy"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 // Simple page loading fallback
-const PageLoader = memo(() => (
-  <div className="min-h-screen bg-black flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500" />
-  </div>
-));
+const PageLoader = memo(() => {
+  // Na home, enquanto a página carrega, repete o topo que já veio no HTML.
+  if (window.__homeShell && window.location.pathname === "/") {
+    return <div style={{ display: "contents" }} dangerouslySetInnerHTML={{ __html: window.__homeShell }} />;
+  }
+  return (
+    <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-purple-500" />
+    </div>
+  );
+});
 PageLoader.displayName = "PageLoader";
 
 function Router() {
