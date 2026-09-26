@@ -89,8 +89,11 @@ function Hero() {
   const effectsReady = useAfterLoad();
   const isHighPerf = useHighPerfWebGL(effectsReady);
   
-  // Determine if we should skip animations entirely
-  const skipAnimations = isMobile || reducedMotion;
+  // Determine if we should skip animations entirely. When the top already
+  // came in the HTML (and while generating it at build time), replaying the
+  // entrance would make the text vanish and fade back in.
+  const cameFromShell = typeof window === "undefined" || !!window.__homeShell;
+  const skipAnimations = isMobile || reducedMotion || cameFromShell;
   
   // Memoized animation config - prevents object recreation
   const fadeInUp = useMemo(() => ({
