@@ -10,9 +10,9 @@ const WHATSAPP_LINK = "https://wa.me/5564993259857?text=Quero%20saber%20mais%20s
 
 // Trust badges data - defined outside component to avoid recreation
 const trustBadges = [
-  { icon: Clock, text: "Resposta em 24h" },
+  { icon: Clock, text: "Atendimento virtual 24h" },
   { icon: Shield, text: "Privacidade conforme a LGPD" },
-  { icon: Zap, text: "Implementação Rápida" },
+  { icon: Zap, text: "Prazo definido no diagnóstico" },
 ] as const;
 
 function CTASection() {
@@ -62,7 +62,7 @@ function CTASection() {
           </h2>
           
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/60 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
-            Agende uma consultoria gratuita de 30 minutos e descubra quais tarefas repetitivas do seu negócio um agente de IA pode assumir.
+            Conte sua necessidade pelo WhatsApp. Nossa equipe confirma o plano, as integrações e os limites antes da contratação; uma reunião é marcada quando necessário.
           </p>
           
           {/* Trust badges */}
@@ -85,7 +85,7 @@ function CTASection() {
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <RainbowButton className="h-14 sm:h-16 px-6 sm:px-10 text-base sm:text-lg w-full">
                 <Sparkles className="w-4 sm:w-5 h-4 sm:h-5" />
-                Agendar Diagnóstico Gratuito
+                Solicitar Diagnóstico Gratuito
                 <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </RainbowButton>
             </a>

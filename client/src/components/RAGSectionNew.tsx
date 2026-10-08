@@ -195,7 +195,7 @@ function RAGSection() {
           {/* Subheadline mais direta */}
           <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Diferente de um ChatGPT genérico, nosso assistente lê seus documentos e responde com informações reais do seu negócio. <br />
-            <span className="text-white font-medium"> Sem inventar resposta: quando não encontra na base, encaminha para a sua equipe.</span>
+            <span className="text-white font-medium"> Respostas com base nas informações aprovadas; dúvidas sem respaldo são encaminhadas para a sua equipe.</span>
           </p>
           
           {/* CSS para animação do gradiente - only render on desktop */}

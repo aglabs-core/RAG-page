@@ -33,7 +33,7 @@ const benefits = [
   {
     icon: UserCheck,
     title: "Captura de leads",
-    description: "Coleta nome, telefone e interesse de cada cliente e registra o contato no seu CRM.",
+    description: "Coleta nome e contato no cadastro do atendimento. Integração com seu CRM é avaliada separadamente.",
   },
   {
     icon: Send,

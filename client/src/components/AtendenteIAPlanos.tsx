@@ -41,13 +41,13 @@ const plans = [
     pricePrefix: null,
     setup: "197",
     setupLabel: "+ implantação R$197",
-    description: "Automatize agendamentos e acompanhe cada lead até o fechamento.",
+    description: "Automatize agendamentos e retome contatos conforme regras combinadas.",
     features: [
       "Tudo do Start",
       // A ficha canônica limita o Pro a uma integração de agenda; as demais
       // são orçadas à parte.
-      "Agendamento automático em uma agenda integrada",
-      "Follow-up automático de leads que não fecharam",
+      "Agendamento em uma agenda compatível, validada no diagnóstico",
+      "Follow-up com regras, limites e critérios de parada",
       "Relatório mensal de atendimentos e leads",
     ],
     accent: "border-purple-500/30",
@@ -57,7 +57,7 @@ const plans = [
     popular: true,
   },
   {
-    id: "cororate",
+    id: "corporate",
     name: "Corporate",
     badge: "🥇",
     price: "597",
@@ -69,7 +69,7 @@ const plans = [
     setupLabel: "+ implantação a partir de R$397",
     description: "Operação sob medida: canais, integrações e permissões definidos em diagnóstico.",
     features: [
-      "Tudo do Pro",
+      "Recursos de atendimento e automação definidos em proposta",
       "Agente IA avançado com personalidade da marca",
       // Canais, integrações e ferramentas entram como possibilidades sujeitas
       // a escopo — não como inclusão ilimitada.
@@ -120,7 +120,7 @@ function AtendenteIAPlanos() {
           </h2>
 
           <p className="text-white/50 text-base sm:text-lg max-w-2xl mx-auto">
-            Comece pequeno, escale quando quiser. Todos os planos incluem suporte e atualizações.
+            Comece pequeno e evolua conforme a necessidade. Suporte, manutenção e limites de uso são definidos na contratação.
           </p>
         </motion.div>
 
@@ -224,8 +224,7 @@ function AtendenteIAPlanos() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="text-center text-sm text-white/30 mt-8 sm:mt-12 max-w-lg mx-auto"
         >
-          Todos os planos podem ser cancelados a qualquer momento. 
-          Dúvidas? Fale com a gente no WhatsApp.
+          Antes do pagamento, nossa equipe confirma o escopo, as integrações, o prazo e as condições de cobrança e cancelamento. Fale com a gente no WhatsApp.
         </motion.p>
       </div>
     </section>
