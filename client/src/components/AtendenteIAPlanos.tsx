@@ -14,14 +14,18 @@ const plans = [
     name: "Start",
     badge: "🥉",
     price: "147",
+    pricePrefix: null,
     setup: null,
-    setupLabel: "sem setup",
-    description: "Comece a atender seus clientes 24/7 sem investimento inicial.",
+    // "sem investimento inicial" dava a entender que o primeiro mês não é
+    // cobrado. A implantação é que não tem taxa separada: a mensalidade de
+    // R$ 147 vale desde o primeiro mês.
+    setupLabel: "sem taxa de implantação separada",
+    description: "Atendimento 24/7 no WhatsApp, com a implantação inclusa na primeira mensalidade.",
     features: [
       "Atendente IA no WhatsApp respondendo 24/7",
       "Respostas às perguntas frequentes do negócio",
       "Captura de nome e contato do cliente",
-      "Configuração inclusa no primeiro mês",
+      "Implantação inclusa — mensalidade de R$ 147 já no primeiro mês",
     ],
     accent: "border-amber-700/30",
     badgeBg: "bg-amber-900/20",
@@ -34,12 +38,15 @@ const plans = [
     name: "Pro",
     badge: "🥈",
     price: "297",
+    pricePrefix: null,
     setup: "197",
-    setupLabel: "setup R$197",
+    setupLabel: "+ implantação R$197",
     description: "Automatize agendamentos e acompanhe cada lead até o fechamento.",
     features: [
       "Tudo do Start",
-      "Agendamento automático integrado",
+      // A ficha canônica limita o Pro a uma integração de agenda; as demais
+      // são orçadas à parte.
+      "Agendamento automático em uma agenda integrada",
       "Follow-up automático de leads que não fecharam",
       "Relatório mensal de atendimentos e leads",
     ],
@@ -54,15 +61,22 @@ const plans = [
     name: "Corporate",
     badge: "🥇",
     price: "597",
+    // Corporate é dimensionado por projeto: a ficha canônica registra os dois
+    // valores como "a partir de", e o preço final pode subir conforme
+    // ferramentas, permissões, volume e supervisão definidos no diagnóstico.
+    pricePrefix: "a partir de",
     setup: "397",
-    setupLabel: "setup R$397",
-    description: "IA avançada com personalidade da sua marca, em múltiplos canais.",
+    setupLabel: "+ implantação a partir de R$397",
+    description: "Operação sob medida: canais, integrações e permissões definidos em diagnóstico.",
     features: [
       "Tudo do Pro",
       "Agente IA avançado com personalidade da marca",
-      "Integração WhatsApp + Telegram",
-      "CRM + API's + MCP's",
-      "Suporte avançado de configuração",
+      // Canais, integrações e ferramentas entram como possibilidades sujeitas
+      // a escopo — não como inclusão ilimitada.
+      "Canais adicionais avaliados no escopo, por exemplo Telegram",
+      "Integrações possíveis conforme o escopo: CRM, APIs e MCPs",
+      "Ações críticas com aprovação humana",
+      "Escopo, limites e preço final definidos em proposta",
     ],
     accent: "border-yellow-500/30",
     badgeBg: "bg-yellow-500/10",
@@ -150,7 +164,16 @@ function AtendenteIAPlanos() {
 
               {/* Price */}
               <div className="mb-6">
+                {/* O prefixo aparece acima do valor para quem vê, e é repetido
+                    oculto junto do número para quem usa leitor de tela — sem o
+                    aria-hidden aqui, seria anunciado duas vezes. */}
+                {plan.pricePrefix && (
+                  <p className="text-xs text-white/40 mb-0.5" aria-hidden="true">
+                    {plan.pricePrefix}
+                  </p>
+                )}
                 <div className="flex items-baseline gap-1">
+                  {plan.pricePrefix && <span className="sr-only">{plan.pricePrefix} </span>}
                   <span className="text-sm text-white/40">R$</span>
                   <span className="text-4xl sm:text-5xl font-bold text-white">{plan.price}</span>
                   <span className="text-sm text-white/40">/mês</span>

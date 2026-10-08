@@ -428,9 +428,19 @@ function RAGSection() {
                   <span className="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
                   Mesma pergunta
                 </p>
+                {/* Resposta de exemplo: é o atendente do cliente falando da tabela dele,
+                    não a oferta da AG LABS. O nome do plano e o valor são fictícios de
+                    propósito, para ninguém confundir com os planos da seção Planos. */}
                 <p className="text-white/80 text-sm leading-relaxed">
-                  "O plano Pro custa <span className="text-emerald-400 font-semibold">R$ 197/mês</span>. 
+                  "O Plano Mensal Fit custa <span className="text-emerald-400 font-semibold">R$ 89/mês</span>.
                   <span className="text-purple-400/80"> <br />Fonte: Tabela de Preços 2026</span>"
+                </p>
+                <p className="text-white/35 text-[11px] leading-snug mt-3">
+                  Exemplo fictício, com a tabela de uma academia. Os preços da AG LABS estão em{" "}
+                  <a href="#planos" className="underline hover:text-white/60 transition-colors">
+                    Planos
+                  </a>
+                  .
                 </p>
               </div>
               
